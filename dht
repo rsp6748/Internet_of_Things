@@ -1,0 +1,10 @@
+import dht11
+import RPi.GPIO as GPIO
+import time
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+mydh= dht11.DHT11(pin=17)
+while True:
+    result=mydh.read()
+    if result.is_valid():
+        print("temprature is:",result.temperature,"humidity:",result.humidity)
